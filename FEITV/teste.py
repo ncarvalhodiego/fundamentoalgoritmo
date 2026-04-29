@@ -1,5 +1,7 @@
-arquivo = open("teste.txt", "w")
+import msvcrt
 
-for linha in range(1,101):
-    arquivo.write("Linha %d\n" %linha)
-arquivo.close()
+print("Pressione uma tecla...")
+
+tecla = msvcrt.getch()
+
+print("Você pressionou:", tecla.decode())
