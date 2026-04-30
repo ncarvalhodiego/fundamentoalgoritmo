@@ -1,6 +1,6 @@
 import os
 import platform
-import time
+from time import sleep
 import msvcrt
 import random
 
@@ -15,22 +15,22 @@ def limparTerminal():
 def adeus():
     t = 0.2
     print("Adeus!")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
     print("Adeus")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
     print("Adeu")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
     print("Ade")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
     print("Ad")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
     print("A")
-    time.sleep(t)
+    sleep(t)
     limparTerminal()
 
 def formatarUsers():
@@ -43,20 +43,40 @@ def formatarUsers():
     with open ("usuarios.txt" , "w") as users:
         users.writelines(novasLinhas)
 
+
+def paginaVideo(video):
+    limparTerminal()
+    print("PAGINA VIDEO")
+    print()
+
+def paginaFavoritos():
+    limparTerminal()
+    print("FAVORITOS")
+    with open("favoritos.txt" , "r") as favs:
+        linhas = favs.readlines()
+        for i in linhas:
+            print(i)
+
+def paginaPesquisar():
+    limparTerminal()
+    print("PESQUISA POR NOME:")
+    pesq = str(input(">> "))
+
+
 def explorar():
     print()
     with open("videos.txt" , "r") as videos:
         linhas = videos.readlines()
         nLinhas = len(linhas)
         for i in range(10):
-            num = random.randint(1,nLinhas)
+            num = random.randint(6,nLinhas)
             linhasss = linhas[num-1].strip().split("\\")
             print("%s --> %s" % (linhasss[0],linhasss[1]))
             print()
 
 def menu():
     limparTerminal()
-    print("MENU  -  Bem vindo/a, %s!" % usuario)
+    print("Bem vindo/a, %s!" % usuario)
     print()
     print("1 - Pesquisar (por nome)")
     print("2 - Gerenciar favoritos")
@@ -64,8 +84,18 @@ def menu():
     print()
     print("Explorar:")
     explorar()
+    inp = msvcrt.getch().decode()
+    if inp == "0":
+        paginaInicial()
+    if inp == "1":
+        paginaPesquisar()
+    if inp == "2":
+        paginaFavoritos()
+    else:
+        menu()
 
 def paginaLogin():
+    formatarUsers()
     sucess = False
     usuarioInp = str(input("Usuário: "))
     senhaInp = str(input("Senha: "))
@@ -81,10 +111,11 @@ def paginaLogin():
     else:
         print()
         print("Usuário ou senha incorretos!")
-        time.sleep(2)
+        sleep(2)
         paginaInicial()
 
 def paginaSigin():
+    formatarUsers()
     limparTerminal()
     print("Crie o nome de usuário:   (enter para voltar)")
     usuarior = str(input(">> "))
@@ -100,14 +131,14 @@ def paginaSigin():
                     jaExiste = True
         if jaExiste == True:
             print("Esse nome de usuário ja existe!")
-            time.sleep(2)
+            sleep(2)
             limparTerminal()
             paginaInicial()
         else:            
             usersplit = usuario.strip().split()
             if len(usersplit) > 1:
                 print("O nome de usuário não pode conter espaços!")
-                time.sleep(2)
+                sleep(2)
                 paginaInicial()
             else:
                 limparTerminal()
@@ -118,20 +149,24 @@ def paginaSigin():
                 senhaa = senha1.strip().split()
                 if len(senhaa) > 1:
                     print("A senha não pode conter espaços!")
-                    time.sleep(2)
+                    sleep(2)
+                    paginaInicial()
+                if len(senhaa) == 0:
+                    print("A senha não pode ser nula!")
+                    sleep(2)
                     paginaInicial()
                 else:
                     if senha1 == senha2:
                         with open("usuarios.txt" , "a") as usuarios:
                             usuarios.write("%s %s\n" % (usuario.strip(), senha1.strip()))
                         print("Usuário criado!")
-                        time.sleep(1)
+                        sleep(1)
                         print("Você ja pode fazer login!")
-                        time.sleep(2)
+                        sleep(2)
                         paginaInicial()
                     else:
                         print("As senhas não batem!")
-                        time.sleep(2)
+                        sleep(2)
                         paginaInicial()
 
 def paginaInicial():

@@ -1,25 +1,85 @@
-Titulo\Canal\Duracao\DataLancamento\Genero
-Sasuke assando frango\NarutoPlays\10:39\18/11/2007\Anime
-Pinto Grande\Andreia\69:69\69/69/69\Seqsu
-Laele\Manuel Gomes\8:31\03/04/2026\Musica
-Sou Viado\Inhel\5:46\04/10/2025\Drama
-Aprendendo Python\CodeMaster\12:45\15/03/2024\Programacao
-Tutorial SQL Completo\DBExpert\20:10\22/07/2023\Programacao
-Introducao ao HTML\WebStart\09:30\10/01/2022\Web
-CSS Moderno\DesignPro\14:55\18/06/2023\Web
-JavaScript Basico\DevWorld\16:20\05/05/2024\Web
-Algoritmos Simples\LogicPro\11:11\11/11/2021\Programacao
-Flask API do Zero\BackendLab\22:40\09/09/2023\Programacao
-Banco de Dados SQLite\DataHub\18:25\14/02/2024\Programacao
-Edicao de Video Basica\VideoMaker\13:37\30/08/2022\Multimidia
-Photoshop para Iniciantes\ArtDesign\17:50\12/12/2023\Design
-UI Design Pratico\UXStudio\21:05\01/04/2024\Design
-UX na Pratica\UserFirst\19:15\27/03/2023\Design
-Marketing Digital 2024\MarketPro\15:45\02/02/2024\Negocios
-Investindo do Zero\FinanceLab\23:10\08/10/2023\Financas
-Educacao Financeira\MoneyWise\10:20\19/05/2022\Financas
-Produtividade Maxima\FocusNow\12:00\07/07/2023\Pessoal
-Como Estudar Melhor\StudyPro\08:45\11/03/2024\Pessoal
-Inteligencia Artificial Intro\TechMind\25:30\20/01/2025\Tecnologia
-Machine Learning Basico\AIHub\28:10\05/06/2024\Tecnologia
-Redes de Computadores\NetTech\14:40\17/09/2022\Tecnologia
+Titulo\Canal\Duracao\DataLancamento\Genero\PRIVADO
+Sasuke assando frango\NarutoPlays\10:39\18/11/2007\Anime\PRIVADO
+Pinto Grande\Andreia\69:69\69/69/69\Seqsu\PRIVADO
+Laele\Manuel Gomes\8:31\03/04/2026\Musica\PRIVADO
+Sou Viado\Inhel\5:46\04/10/2025\Drama\PRIVADO
+Aprendendo Python\CodeMaster\12:45\15/03/2024\Programacao\Video
+Tutorial SQL Completo\DBExpert\20:10\22/07/2023\Programacao\Video
+Introducao ao HTML\WebStart\09:30\10/01/2022\Web\Video
+CSS Moderno\DesignPro\14:55\18/06/2023\Web\Video
+JavaScript Basico\DevWorld\16:20\05/05/2024\Web\Video
+Algoritmos Simples\LogicPro\11:11\11/11/2021\Programacao\Video
+Flask API do Zero\BackendLab\22:40\09/09/2023\Programacao\Video
+Banco de Dados SQLite\DataHub\18:25\14/02/2024\Programacao\Video
+Edicao de Video Basica\VideoMaker\13:37\30/08/2022\Multimidia\Video
+Photoshop para Iniciantes\ArtDesign\17:50\12/12/2023\Design\Video
+UI Design Pratico\UXStudio\21:05\01/04/2024\Design\Video
+UX na Pratica\UserFirst\19:15\27/03/2023\Design\Video
+Marketing Digital 2024\MarketPro\15:45\02/02/2024\Negocios\Video
+Investindo do Zero\FinanceLab\23:10\08/10/2023\Financas\Video
+Educacao Financeira\MoneyWise\10:20\19/05/2022\Financas\Video
+Produtividade Maxima\FocusNow\12:00\07/07/2023\Pessoal\Video
+Como Estudar Melhor\StudyPro\08:45\11/03/2024\Pessoal\Video
+Inteligencia Artificial Intro\TechMind\25:30\20/01/2025\Tecnologia\Video
+Machine Learning Basico\AIHub\28:10\05/06/2024\Tecnologia\Video
+Redes de Computadores\NetTech\14:40\17/09/2022\Tecnologia\Video
+Desenvolvimento Django Completo\CodeMaster\18:30\12/04/2024\Programacao\Video
+APIs REST com Node.js\BackendLab\21:15\03/03/2024\Programacao\Video
+Git e GitHub do Zero\DevWorld\11:45\28/02/2023\Programacao\Video
+Programacao Orientada a Objetos\LogicPro\19:20\15/06/2023\Programacao\Video
+Estruturas de Dados Avancadas\CodeMaster\23:50\09/08/2024\Programacao\Video
+Bootstrap na Pratica\WebStart\10:35\05/09/2022\Web\Video
+Responsividade com CSS\DesignPro\13:25\22/11/2023\Web\Video
+JavaScript Assincrono\DevWorld\17:40\19/01/2024\Web\Video
+React para Iniciantes\FrontendLab\24:10\11/05/2024\Web\Video
+Vue.js Basico\FrontendLab\16:55\07/07/2023\Web\Video
+Premiere Pro Essencial\VideoMaker\20:30\14/10/2023\Multimidia\Video
+After Effects Intro\VideoMaker\22:15\02/01/2024\Multimidia\Video
+Ilustracao Digital Basica\ArtDesign\15:10\18/03/2023\Design\Video
+Figma para UI Design\UXStudio\18:45\29/06/2024\Design\Video
+Design Thinking Aplicado\UserFirst\14:20\09/09/2023\Design\Video
+Branding para Iniciantes\ArtDesign\12:50\21/02/2024\Design\Video
+SEO para Iniciantes\MarketPro\17:35\13/01/2024\Negocios\Video
+Gestao de Redes Sociais\MarketPro\19:55\27/04/2024\Negocios\Video
+Empreendedorismo Digital\BizStart\21:30\30/05/2023\Negocios\Video
+Copywriting Eficiente\MarketPro\16:10\08/08/2023\Negocios\Video
+Investimentos em Acoes\FinanceLab\22:45\17/12/2024\Financas\Video
+Fundos Imobiliarios\MoneyWise\14:05\03/11/2023\Financas\Video
+Planejamento Financeiro\FinanceLab\18:20\26/06/2022\Financas\Video
+Renda Passiva Estrategias\MoneyWise\20:00\12/02/2024\Financas\Video
+Organizacao Pessoal\FocusNow\11:25\04/04/2023\Pessoal\Video
+Habitos Produtivos\FocusNow\13:40\19/09/2023\Pessoal\Video
+Gestao de Tempo\StudyPro\15:15\22/01/2024\Pessoal\Video
+Memorizacao Avancada\StudyPro\12:35\10/10/2023\Pessoal\Video
+Introducao a Big Data\TechMind\26:10\08/03/2025\Tecnologia\Video
+Deep Learning Basico\AIHub\29:00\14/07/2024\Tecnologia\Video
+Seguranca da Informacao\NetTech\18:30\25/05/2023\Tecnologia\Video
+Cloud Computing AWS\TechMind\21:50\01/12/2024\Tecnologia\Video
+Linux para Iniciantes\SysAdmin\17:20\06/06/2022\Tecnologia\Video
+Docker na Pratica\BackendLab\19:45\15/08/2023\Tecnologia\Video
+Kubernetes Essencial\BackendLab\23:05\28/10/2024\Tecnologia\Video
+Automacao com Python\CodeMaster\16:50\09/02/2024\Programacao\Video
+Testes Automatizados\DevWorld\14:15\18/07/2023\Programacao\Video
+Scrum e Metodologias Ageis\BizStart\13:30\11/11/2022\Negocios\Video
+Analise de Dados com Python\DataHub\20:40\05/03/2025\Tecnologia\Video
+Power BI para Iniciantes\DataHub\18:55\27/01/2024\Tecnologia\Video
+Inception\Christopher Nolan\02:28\16/07/2010\Ficcao\Filme
+The Matrix\Lana Wachowski e Lilly Wachowski\02:16\31/03/1999\Ficcao\Filme
+Titanic\James Cameron\03:14\19/12/1997\Romance\Filme
+The Godfather\Francis Ford Coppola\02:55\24/03/1972\Drama\Filme
+Pulp Fiction\Quentin Tarantino\02:34\14/10/1994\Crime\Filme
+The Dark Knight\Christopher Nolan\02:32\18/07/2008\Acao\Filme
+Forrest Gump\Robert Zemeckis\02:22\06/07/1994\Drama\Filme
+Fight Club\David Fincher\02:19\15/10/1999\Drama\Filme
+Interstellar\Christopher Nolan\02:49\07/11/2014\Ficcao\Filme
+Gladiator\Ridley Scott\02:35\05/05/2000\Acao\Filme
+Avatar\James Cameron\02:42\18/12/2009\Ficcao\Filme
+The Shawshank Redemption\Frank Darabont\02:22\23/09/1994\Drama\Filme
+The Avengers\Joss Whedon\02:23\04/05/2012\Acao\Filme
+Jurassic Park\Steven Spielberg\02:07\11/06/1993\Aventura\Filme
+The Lion King\Roger Allers e Rob Minkoff\01:28\15/06/1994\Animacao\Filme
+Parasite\Bong Joon-ho\02:12\30/05/2019\Drama\Filme
+Joker\Todd Phillips\02:02\04/10/2019\Drama\Filme
+The Social Network\David Fincher\02:00\01/10/2010\Drama\Filme
+Mad Max Fury Road\George Miller\02:00\15/05/2015\Acao\Filme
+La La Land\Damien Chazelle\02:08\09/12/2016\Musical\Filme
