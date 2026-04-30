@@ -2,6 +2,7 @@ import os
 import platform
 import time
 import msvcrt
+import random
 
 usuario = ""
 
@@ -42,11 +43,27 @@ def formatarUsers():
     with open ("usuarios.txt" , "w") as users:
         users.writelines(novasLinhas)
 
+def explorar():
+    print()
+    with open("videos.txt" , "r") as videos:
+        linhas = videos.readlines()
+        nLinhas = len(linhas)
+        for i in range(10):
+            num = random.randint(1,nLinhas)
+            linhasss = linhas[num-1].strip().split("\\")
+            print("%s --> %s" % (linhasss[0],linhasss[1]))
+            print()
+
 def menu():
     limparTerminal()
-    print("MENU")
-    print("Entrou com usuário:", usuario)
-    
+    print("MENU  -  Bem vindo/a, %s!" % usuario)
+    print()
+    print("1 - Pesquisar (por nome)")
+    print("2 - Gerenciar favoritos")
+    print("0 - Sair")
+    print()
+    print("Explorar:")
+    explorar()
 
 def paginaLogin():
     sucess = False

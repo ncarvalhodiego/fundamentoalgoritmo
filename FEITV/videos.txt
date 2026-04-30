@@ -1,0 +1,25 @@
+Titulo\Canal\Duracao\DataLancamento\Genero
+Sasuke assando frango\NarutoPlays\10:39\18/11/2007\Anime
+Pinto Grande\Andreia\69:69\69/69/69\Seqsu
+Laele\Manuel Gomes\8:31\03/04/2026\Musica
+Sou Viado\Inhel\5:46\04/10/2025\Drama
+Aprendendo Python\CodeMaster\12:45\15/03/2024\Programacao
+Tutorial SQL Completo\DBExpert\20:10\22/07/2023\Programacao
+Introducao ao HTML\WebStart\09:30\10/01/2022\Web
+CSS Moderno\DesignPro\14:55\18/06/2023\Web
+JavaScript Basico\DevWorld\16:20\05/05/2024\Web
+Algoritmos Simples\LogicPro\11:11\11/11/2021\Programacao
+Flask API do Zero\BackendLab\22:40\09/09/2023\Programacao
+Banco de Dados SQLite\DataHub\18:25\14/02/2024\Programacao
+Edicao de Video Basica\VideoMaker\13:37\30/08/2022\Multimidia
+Photoshop para Iniciantes\ArtDesign\17:50\12/12/2023\Design
+UI Design Pratico\UXStudio\21:05\01/04/2024\Design
+UX na Pratica\UserFirst\19:15\27/03/2023\Design
+Marketing Digital 2024\MarketPro\15:45\02/02/2024\Negocios
+Investindo do Zero\FinanceLab\23:10\08/10/2023\Financas
+Educacao Financeira\MoneyWise\10:20\19/05/2022\Financas
+Produtividade Maxima\FocusNow\12:00\07/07/2023\Pessoal
+Como Estudar Melhor\StudyPro\08:45\11/03/2024\Pessoal
+Inteligencia Artificial Intro\TechMind\25:30\20/01/2025\Tecnologia
+Machine Learning Basico\AIHub\28:10\05/06/2024\Tecnologia
+Redes de Computadores\NetTech\14:40\17/09/2022\Tecnologia
