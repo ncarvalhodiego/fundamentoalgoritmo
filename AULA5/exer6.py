@@ -1,8 +1,14 @@
-import math
-x = float(input("Primeiro nº: "))
-y = float(input("Segundo nº: "))
-z = float(input("Terceiro nº: "))
-def conta(n1,n2,n3):
-    res = (math.sqrt(n1)) + (math.sqrt(n2)) + (math.sqrt(n3)) + ((n1+n2)/2) + ((n2+n3)/2) + ((n1+n3)/2)
-    return(res)
-print(conta(x,y,z))
+qnt = 0
+soma = 0
+print("(0 para resultados)")
+
+while True:
+    x = int(input("Insira o número para somar: "))
+    if x == 0:
+        print("Quantidade de números:", qnt)
+        print("Soma:", soma)
+        print("Média:", soma/qnt)
+        break
+    else:
+        qnt += 1
+        soma += x

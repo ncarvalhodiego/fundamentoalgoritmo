@@ -45,6 +45,9 @@ def formatarUsers():
 
 def adicionarFavs(midiaNome):
     print("ADICIONOU FAVORITO", midiaNome)
+    sleep(2)
+    menu()
+    return
 
 def paginaVideo(video):
     limparTerminal()
@@ -59,7 +62,6 @@ def paginaVideo(video):
     inp = msvcrt.getch().decode()
     if inp == "1":
         adicionarFavs(video[0])
-        print
         return
     else:
         menu()
@@ -95,15 +97,19 @@ def paginaPesquisar():
                 menu()
                 return
 
-def explorar():
+explorarLista = []
+
+def criarExplorar():
     print()
     with open("videos.txt" , "r") as videos:
         linhas = videos.readlines()
+        global explorarLista
         nLinhas = len(linhas)
         for i in range(10):
             num = random.randint(6,nLinhas)
             linhasss = linhas[num-1].strip().split("\\")
-            print("%s --> %s" % (linhasss[0],linhasss[1]))
+            explorarLista.append("%s --> %s" % (linhasss[0],linhasss[1]))
+            print(explorarLista)
             print()
 
 def menu():
@@ -116,7 +122,9 @@ def menu():
     print("0 - Sair")
     print()
     print("Explorar:")
-    explorar()
+    for i in range(0,len(explorarLista)):
+        print()
+        print(explorarLista[i])
     inp = msvcrt.getch().decode()
     if inp == "1":
         paginaPesquisar()
@@ -145,6 +153,7 @@ def paginaLogin():
                 usuario = linhaa[0]
                 sucess = True
     if sucess:
+        criarExplorar()
         menu()
         return
     else:
@@ -219,6 +228,8 @@ def paginaSigin():
                         return
 
 def paginaInicial():
+    global explorarLista
+    explorarLista = []
     while True:
         limparTerminal()
         print("Bem Vindo ao FeiTV!")

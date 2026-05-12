@@ -1,8 +1,5 @@
-x = int(input("Primeiro nº:"))
-y = int(input("Segundo nº:"))
-def maximo(a,b):
-    if a > b:
-        return(a)
-    else:
-        return(b)
-print(maximo(x,y))
+x = int(input("Tabuada do número: "))
+contador = 1
+while contador <= 10:
+    print(x, "*", contador, "= ", x*contador)
+    contador+=1
