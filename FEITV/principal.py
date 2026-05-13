@@ -13,9 +13,9 @@ def limparTerminal():
         os.system("clear")
 
 def adeus():
-    t = 0.2
+    t = 0.05
     print("Adeus!")
-    sleep(t)
+    sleep(1)
     limparTerminal()
     print("Adeus")
     sleep(t)
@@ -44,7 +44,28 @@ def formatarUsers():
         users.writelines(novasLinhas)
 
 def adicionarFavs(midiaNome):
-    print("ADICIONOU FAVORITO", midiaNome)
+    global usuario
+    with open("favoritos.txt", "r") as favs:
+        linhas = favs.readlines()
+    novasLinhas = []
+   
+    for linha in linhas:
+        linhaS = linha.strip().split("|")
+        if linhaS[0] == usuario:
+            if midiaNome in linhaS:
+                linhaS.remove(midiaNome)
+                print("Favorito removido!")
+            else:
+                linhaS.append(midiaNome)
+                print("Favorito adicionado!")
+
+            novaLinha = "|".join(linhaS) + "\n"
+            novasLinhas.append(novaLinha)
+        else:
+            novasLinhas.append(linha)
+
+    with open("favoritos.txt", "w") as favs:
+        favs.writelines(novasLinhas)
     sleep(2)
     menu()
     return
@@ -57,7 +78,20 @@ def paginaVideo(video):
     print("Lançado em %s" %video[3])
     print("Tipo de midia: %s" %video[4])
     print()
-    print("1 - Adicionar aos favoritos")
+    print("1 - Adicionar/Remover nos favoritos")
+    print("0 - Voltar")
+    inp = msvcrt.getch().decode()
+    if inp == "1":
+        adicionarFavs(video[0])
+        return
+    else:
+        menu()
+        return
+
+    if inFavoritos:
+        print("1 - Remover dos favoritos")
+    else:
+        print("1 - Adicionar aos favoritos")
     print("0 - Voltar")
     inp = msvcrt.getch().decode()
     if inp == "1":
@@ -70,6 +104,45 @@ def paginaVideo(video):
 def paginaFavoritos():
     limparTerminal()
     print("FAVORITOS")
+    print()
+    linhaS = []
+    with open("favoritos.txt", "r") as favs:
+        listalinhas = favs.readlines()
+        for linhaa in listalinhas:
+            linha = linhaa.strip().split("|")
+            if linha[0] == usuario:
+                listafavs = linha
+                for i in range(len(listafavs)):
+                    if listafavs[i] != usuario:
+                        print("%d - %s" %(i,listafavs[i]))
+    print()
+    print("Número do vídeo para acessar / Enter para voltar")
+    inp = input(">> ")
+    if inp.strip() != "":
+        if inp.isdigit():
+            inp = int(inp)
+            with open("videos.txt", "r") as videos:
+                listaVideos = videos.readlines()
+                for linhaa in listaVideos:
+                    linha = linhaa.strip().split("\\")
+                    if int(inp) > len(linha):
+                        print("Mídia não encontrada")
+                        sleep(2)
+                        paginaFavoritos()
+                        return
+                    else:
+                        if linha[0] == listafavs[int(inp)]:
+                            linhaS = linha
+                paginaVideo(linhaS)
+                return
+        else:
+            print("Digite um número!")
+            sleep(2)
+            paginaFavoritos()
+            return
+    else:
+        menu()
+        return
 
 def paginaPesquisar():
     print("PESQUISA POR NOME:  (enter para voltar)")
@@ -214,7 +287,7 @@ def paginaSigin():
                         with open("usuarios.txt" , "a") as usuarios:
                             usuarios.write("%s %s\n" % (usuario.strip(), senha1.strip()))
                         with open("favoritos.txt" , "a") as favs:
-                            favs.write("%s\\\n" %usuario)
+                            favs.write("%s\n" %usuario)
                         print("Usuário criado!")
                         sleep(1)
                         print("Você ja pode fazer login!")
