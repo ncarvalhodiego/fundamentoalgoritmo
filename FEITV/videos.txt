@@ -2,7 +2,7 @@ Titulo\Canal\Duracao\DataLancamento\Genero\PRIVADO
 Sasuke assando frango\NarutoPlays\10:39\18/11/2007\Anime\PRIVADO
 Teste Top\Andreia\69:69\01/01/0001\SLA\PRIVADO
 Laele\Manuel Gomes\8:31\03/04/2026\Musica\PRIVADO
-Sou Viado\Inhel\5:46\04/10/2025\Drama\PRIVADO
+Sou Irado\Inhel\5:46\04/10/2025\Drama\PRIVADO
 Aprendendo Python\CodeMaster\12:45\15/03/2024\Programacao\Video
 Tutorial SQL Completo\DBExpert\20:10\22/07/2023\Programacao\Video
 Introducao ao HTML\WebStart\09:30\10/01/2022\Web\Video
