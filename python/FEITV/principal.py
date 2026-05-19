@@ -1,0 +1,326 @@
+import os
+import platform
+from time import sleep
+import msvcrt
+import random
+
+usuario = ""
+
+def limparTerminal():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+def adeus():
+    t = 0.05
+    print("Adeus!")
+    sleep(1)
+    limparTerminal()
+    print("Adeus")
+    sleep(t)
+    limparTerminal()
+    print("Adeu")
+    sleep(t)
+    limparTerminal()
+    print("Ade")
+    sleep(t)
+    limparTerminal()
+    print("Ad")
+    sleep(t)
+    limparTerminal()
+    print("A")
+    sleep(t)
+    limparTerminal()
+
+def formatarUsers():
+    novasLinhas = []
+    with open("usuarios.txt" , "r") as users:
+        for linha in users.readlines():
+            linhaa = linha.strip().split()
+            if len(linhaa) > 1:
+                novasLinhas.append(linha)
+    with open ("usuarios.txt" , "w") as users:
+        users.writelines(novasLinhas)
+
+def adicionarFavs(midiaNome):
+    global usuario
+    with open("favoritos.txt", "r") as favs:
+        linhas = favs.readlines()
+    novasLinhas = []
+   
+    for linha in linhas:
+        linhaS = linha.strip().split("|")
+        if linhaS[0] == usuario:
+            if midiaNome in linhaS:
+                linhaS.remove(midiaNome)
+                print("Favorito removido!")
+            else:
+                linhaS.append(midiaNome)
+                print("Favorito adicionado!")
+
+            novaLinha = "|".join(linhaS) + "\n"
+            novasLinhas.append(novaLinha)
+        else:
+            novasLinhas.append(linha)
+
+    with open("favoritos.txt", "w") as favs:
+        favs.writelines(novasLinhas)
+    sleep(2)
+    menu()
+    return
+
+def paginaVideo(video):
+    limparTerminal()
+    print("Titulo: %s" % video[0])
+    print("%s de %s" % (video[5], video[1]))
+    print("Duração: %s" %video[2])
+    print("Lançado em %s" %video[3])
+    print("Tipo de midia: %s" %video[4])
+    print()
+    print("1 - Adicionar/Remover nos favoritos")
+    print("0 - Voltar")
+    inp = msvcrt.getch().decode()
+    if inp == "1":
+        adicionarFavs(video[0])
+        return
+    else:
+        menu()
+        return
+
+    if inFavoritos:
+        print("1 - Remover dos favoritos")
+    else:
+        print("1 - Adicionar aos favoritos")
+    print("0 - Voltar")
+    inp = msvcrt.getch().decode()
+    if inp == "1":
+        adicionarFavs(video[0])
+        return
+    else:
+        menu()
+        return
+
+def paginaFavoritos():
+    limparTerminal()
+    print("FAVORITOS")
+    print()
+    linhaS = []
+    with open("favoritos.txt", "r") as favs:
+        listalinhas = favs.readlines()
+        for linhaa in listalinhas:
+            linha = linhaa.strip().split("|")
+            if linha[0] == usuario:
+                listafavs = linha
+                for i in range(len(listafavs)):
+                    if listafavs[i] != usuario:
+                        print("%d - %s" %(i,listafavs[i]))
+    print()
+    print("Número do vídeo para acessar / Enter para voltar")
+    inp = input(">> ")
+    if inp.strip() != "":
+        if inp.isdigit():
+            inp = int(inp)
+            with open("videos.txt", "r") as videos:
+                listaVideos = videos.readlines()
+                for linhaa in listaVideos:
+                    linha = linhaa.strip().split("\\")
+                    if int(inp) > len(linha):
+                        print("Mídia não encontrada")
+                        sleep(2)
+                        paginaFavoritos()
+                        return
+                    else:
+                        if linha[0] == listafavs[int(inp)]:
+                            linhaS = linha
+                paginaVideo(linhaS)
+                return
+        else:
+            print("Digite um número!")
+            sleep(2)
+            paginaFavoritos()
+            return
+    else:
+        menu()
+        return
+
+def paginaPesquisar():
+    print("PESQUISA POR NOME:  (enter para voltar)")
+    pesq = str(input(">>  "))
+    pesq.strip()
+    if pesq == "":
+        menu()
+        return
+    else:
+        with open("videos.txt", "r") as videos:
+            encontrado = False
+            linhas = videos.readlines()
+            for linha in linhas:
+                linhaS = linha.strip().split("\\")
+                if linhaS[0] == pesq:
+                    linhaST = linhaS
+                    encontrado = True
+            if encontrado:
+                paginaVideo(linhaST)
+                return
+            else:
+                print("Midia não encontrada")
+                sleep(2)
+                limparTerminal()
+                menu()
+                return
+
+explorarLista = []
+
+def criarExplorar():
+    print()
+    with open("videos.txt" , "r") as videos:
+        linhas = videos.readlines()
+        global explorarLista
+        nLinhas = len(linhas)
+        for i in range(10):
+            num = random.randint(6,nLinhas)
+            linhasss = linhas[num-1].strip().split("\\")
+            explorarLista.append("%s --> %s" % (linhasss[0],linhasss[1]))
+            print(explorarLista)
+            print()
+
+def menu():
+    limparTerminal()
+    global usuario
+    print("Bem vindo/a, %s!" % usuario)
+    print()
+    print("1 - Pesquisar (por nome)")
+    print("2 - Gerenciar favoritos")
+    print("0 - Sair")
+    print()
+    print("Explorar:")
+    for i in range(0,len(explorarLista)):
+        print()
+        print(explorarLista[i])
+    inp = msvcrt.getch().decode()
+    if inp == "1":
+        paginaPesquisar()
+        return
+    elif inp == "2":
+        paginaFavoritos()
+        return
+    elif inp == "0":
+        paginaInicial()
+        usuario = ""
+        return
+    else:
+        menu()
+        return
+
+def paginaLogin():
+    formatarUsers()
+    sucess = False
+    usuarioInp = str(input("Usuário: "))
+    senhaInp = str(input("Senha: "))
+    with open("usuarios.txt" , "r") as users:
+        for linha in users.readlines():
+            linhaa = linha.strip().split()
+            if linhaa[0] == usuarioInp and linhaa[1] == senhaInp:
+                global usuario
+                usuario = linhaa[0]
+                sucess = True
+    if sucess:
+        criarExplorar()
+        menu()
+        return
+    else:
+        print()
+        print("Usuário ou senha incorretos!")
+        sleep(2)
+        paginaInicial()
+        return
+
+def paginaSigin():
+    formatarUsers()
+    limparTerminal()
+    print("Crie o nome de usuário:   (enter para voltar)")
+    usuarior = str(input(">> "))
+    usuario = usuarior.strip()
+    if usuario == "":
+        paginaInicial()
+        return
+    else:
+        jaExiste = False
+        with open("usuarios.txt" , "r") as users:
+            for linha in users.readlines():
+                linhaa = linha.strip().split()
+                if linhaa[0] == usuario:
+                    jaExiste = True
+        if jaExiste == True:
+            print("Esse nome de usuário ja existe!")
+            sleep(2)
+            limparTerminal()
+            paginaInicial()
+            return
+        else:            
+            usersplit = usuario.strip().split()
+            if len(usersplit) > 1:
+                print("O nome de usuário não pode conter espaços!")
+                sleep(2)
+                paginaInicial()
+                return
+            else:
+                limparTerminal()
+                print("Digite a senha: ")
+                senha1 = str(input(">> "))
+                print("Confirme a senha: ")
+                senha2 = str(input(">> "))
+                senhaa = senha1.strip().split()
+                if len(senhaa) > 1:
+                    print("A senha não pode conter espaços!")
+                    sleep(2)
+                    paginaInicial()
+                    return
+                if len(senhaa) == 0:
+                    print("A senha não pode ser nula!")
+                    sleep(2)
+                    paginaInicial()
+                    return
+                else:
+                    if senha1 == senha2:
+                        with open("usuarios.txt" , "a") as usuarios:
+                            usuarios.write("%s %s\n" % (usuario.strip(), senha1.strip()))
+                        with open("favoritos.txt" , "a") as favs:
+                            favs.write("%s\n" %usuario)
+                        print("Usuário criado!")
+                        sleep(1)
+                        print("Você ja pode fazer login!")
+                        sleep(2)
+                        paginaInicial()
+                        return
+                    else:
+                        print("As senhas não batem!")
+                        sleep(2)
+                        paginaInicial()
+                        return
+
+def paginaInicial():
+    global explorarLista
+    explorarLista = []
+    while True:
+        limparTerminal()
+        print("Bem Vindo ao FeiTV!")
+        print()
+        print("1 - Login")
+        print("2 - Signin")
+        print("0 - Sair")
+        print()
+        inp = msvcrt.getch().decode()
+        if inp == "1":
+            paginaLogin()
+            break
+        elif inp == "2":
+            paginaSigin()
+            break
+        elif inp == "0":
+            limparTerminal()
+            adeus()
+            break
+
+paginaInicial()
