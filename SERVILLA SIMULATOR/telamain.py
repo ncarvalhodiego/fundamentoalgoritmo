@@ -2,6 +2,7 @@ import time, math
 import tkinter as tk
 from tkinter import messagebox, simpledialog, filedialog
 from PIL import Image, ImageTk
+from mapa import telaMapa
 
 
 def apertou():
@@ -20,5 +21,5 @@ def telaMain():
     janela.title("Servilla Simulator")
     janela.geometry("700x500")
 
-    criarBotao("APERTE", apertou, 50, 110)
-    criarBotao("PENIS\nGROSSO", apertou, 400, 250)
+    criarBotao("APERTE", apertou, 50, 400)
+    criarBotao("PENIS\nGROSSO", apertou, 500, 250)

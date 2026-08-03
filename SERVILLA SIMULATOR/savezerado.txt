@@ -1,0 +1,8 @@
+Saude=100
+Dinheiro=100
+Aura=200
+Saciedade=100
+Tesao=0
+Conhecimento=1
+limitaraura=True
+limitarconhecimento=True

@@ -1,0 +1,1 @@
+### vai ser para dar new game, vai resetar o save
