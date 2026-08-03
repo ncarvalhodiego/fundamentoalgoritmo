@@ -14,8 +14,17 @@ def telaMenu():
     # criando janela
     global janela
     janela = tk.Tk()
-    janela.title("Servilla Simulator")
-    janela.geometry("500x300")
+    janela.title("Servilla Simulator®")
+
+    largura = 500
+    altura = 300
+    # Tamanho da tela
+    largura_tela = janela.winfo_screenwidth()
+    altura_tela = janela.winfo_screenheight()
+    # Calcula o centro
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
 
 
     # Carrega a imagem original
@@ -36,18 +45,34 @@ def telaMenu():
     janela.bind("<Configure>", redimensionar)
 
 
+    # verifica se é novo jogo
+    ng = False
+    saveplayer = []
+    with open("saveplayer.txt", "r") as a:
+        for i in a:
+            saveplayer.append(i)
+    savepadrao = []
+    with open("savezerado.txt") as a:
+        for i in a:
+            savepadrao.append(i)
+    if saveplayer == savepadrao:
+        ng = True
+
+
     # criando titulo
     title = tk.Label(text="    Jaoas Life    ", font=("Arial", 22, "bold"))
     title.pack(pady=(30,30))
 
     # criando botao de comecar 
-    butao = tk.Button(janela, command=telaInicio, text="COMEÇAR", width=20, height=2)
+    butao = tk.Button(janela, command=telaInicio, text="COMEÇAR" if ng == True else "CONTINUAR", width=20, height=2)
     butao.pack(pady=(60,30))
+    if ng:
+        messagebox.showinfo("Servilla Simulator", "Seja bem vindo ao simulador de Jaoas!!! Aqui você sobe de nível, toma suas próprias escolhas, cai, levanta, aprende a amar, a odiar, infarta, e principalmente... farma aura (rsrs)")
+        nome = simpledialog.askstring("Servilla Simulator®", "Qual é o seu nome?")
+        messagebox.showwarning("Servilla Simulator®", f"Foda-se, {nome if nome is not None else 'seu filho da puta'}! Agora você é o Jaoas!!!")
+        messagebox.showinfo("Servilla Simulator®", "Boa sorte, novo Jaoas...")
 
-#    if primeira vez entrando:
-    messagebox.showinfo("Servilla Simulator", "Seja bem vindo ao simulador de Jaoas!!! Aqui você sobe de nível, toma suas próprias escolhas, cai, levanta, aprende a amar, a odiar, infarta, e principalmente... farma aura (rsrs)")
-    messagebox.showinfo("Servilla Simulator", "Boa sorte, novo Jaoas...")
-    
+
     # loop da janela
     janela.mainloop()
 telaMenu()
