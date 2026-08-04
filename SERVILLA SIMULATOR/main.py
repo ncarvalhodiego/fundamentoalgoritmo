@@ -67,9 +67,12 @@ def telaMenu():
     butao = tk.Button(janela, command=telaInicio, text="COMEÇAR" if ng == True else "CONTINUAR", width=20, height=2)
     butao.pack(pady=(60,30))
     if ng:
-        messagebox.showinfo("Servilla Simulator", "Seja bem vindo ao simulador de Jaoas!!! Aqui você sobe de nível, toma suas próprias escolhas, cai, levanta, aprende a amar, a odiar, infarta, e principalmente... farma aura (rsrs)")
+        messagebox.showinfo("Servilla Simulator®", "Seja bem vindo ao simulador de Jaoas!!! Aqui você sobe de nível, toma suas próprias escolhas, cai, levanta, aprende a amar, a odiar, infarta, e principalmente... farma aura (rsrs)")
         nome = simpledialog.askstring("Servilla Simulator®", "Qual é o seu nome?")
-        messagebox.showwarning("Servilla Simulator®", f"Foda-se, {nome if nome is not None else 'seu filho da puta'}! Agora você é o Jaoas!!!")
+        # askstring devolve None no Cancelar e "" quando o campo fica vazio
+        if nome:
+            nome = nome.strip()
+        messagebox.showwarning("Servilla Simulator®", f"Foda-se, {nome if nome else 'seu filho da puta'}! Agora você é o Jaoas!!!")
         messagebox.showinfo("Servilla Simulator®", "Boa sorte, novo Jaoas...")
 
 

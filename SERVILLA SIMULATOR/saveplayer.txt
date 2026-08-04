@@ -1,8 +1,11 @@
-Saude=100
+Dia=1
 Dinheiro=100
 Aura=200
-Saciedade=100
-Tesao=0
-Conhecimento=1
+Saciedade=85
+Tesao=54
+Conhecimento=15
+Cansaco=0
+Alcoometro=0
+Comida=4
 limitaraura=True
 limitarconhecimento=True
